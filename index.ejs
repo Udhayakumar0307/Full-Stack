@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Welcome to Login Portal</h1>
+    <h2>Registration Form</h2>
+
+    <div class="form-container">
+        <form action="/submit" method="post" onsubmit="return validateForm()">
+            
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="gender-container">
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="Female" required>
+                    <label for="female">Female</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your number" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select id="course" name="course" required>
+                    <option value="">Select a course</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Full-Stack Development">Full-Stack Development</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="App Development">App Development</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var age = document.getElementById('age').value;
+            var phone = document.getElementById('phone').value;
+
+            if (age < 18) {
+                alert("Age must be 18 or older");
+                return false;
+            }
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Phone number must contain exactly 10 digits");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
+
