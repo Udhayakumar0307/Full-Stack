@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A-One Services - Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">A-One Services</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <% if (user) { %>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="/users">User Management</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            <% } else { %>
+              <li class="nav-item"><a class="nav-link" href="#signup">Sign Up</a></li>
+              <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+              <% } %>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero text-center d-flex align-items-center justify-content-center">
+    <div class="hero-content fade-in">
+      <h1>Your Learning Journey Starts Here</h1>
+      <p class="lead">Join our growing community of learners and professionals, and unlock your potential today!</p>
+      <a href="#signup" class="btn btn-primary btn-lg btn-animate">Join Now</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="container my-5">
+    <h2 class="text-center">About Us</h2>
+    <p class="text-center">
+      At A-One Services, we are dedicated to empowering individuals with top-notch IT and cybersecurity training.
+      Our programs are designed to provide hands-on experience, expert guidance, and globally recognized certifications.
+    </p>
+    <div class="about-container d-flex justify-content-center gap-4">
+      <div class="about-box mission">
+        <h3>Our Mission</h3>
+        <p>We empower individuals with tech skills for a brighter future.</p>
+      </div>
+      <div class="about-box vision">
+        <h3>Our Vision</h3>
+        <p>To be the leading platform for IT education and career transformation.</p>
+      </div>
+      <div class="about-box join">
+        <h3>Why Join Us?</h3>
+        <p>Get expert mentorship, networking opportunities, and career support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="container my-5">
+    <h2 class="section-title text-center">Our Services</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="box guidance">
+          <h3>Expert Guidance</h3>
+          <p>Learn from industry professionals with real-world experience.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box networking">
+          <h3>Networking</h3>
+          <p>Connect with experts and peers to expand your opportunities.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="box certifications">
+          <h3>Certifications</h3>
+          <p>Earn globally recognized certifications to boost your career.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center mt-4">
+      <div class="col-md-6">
+        <div class="box skills">
+          <h3>Skill Development</h3>
+          <p>Enhance your technical skills with hands-on training.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box career">
+          <h3>Career Guidance</h3>
+          <p>Get expert advice on building a successful career path.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" class="p-5">
+    <h2 class="text-center slide-in-up">Sign Up</h2>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form action="/submit-form" method="POST" id="signupForm">
+            <div class="mb-3">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" class="form-control" required />
+              <small id="emailHint" class="form-text"></small>
+            </div>
+            <div class="mb-3">
+              <label for="phone">Phone:</label>
+              <input type="tel" id="phone" name="phone" class="form-control" placeholder="9876543210" required />
+              <small id="phoneHint" class="form-text"></small>
+            </div>
+            <div class="mb-3">
+              <label for="age">Age:</label>
+              <input type="number" id="age" name="age" class="form-control" min="1" required />
+            </div>
+            <div class="mb-3">
+              <label for="interest">Area of Interest:</label>
+              <select id="interest" name="interest" class="form-control" required>
+                <option value="">--Select an option--</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Full Stack Development">Full Stack Development</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="AI/ML">AI/ML</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" required />
+              <div class="progress mb-2">
+                <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0%;"
+                  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <small id="passwordStrengthHint" class="form-text"></small>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword">Confirm Password:</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required />
+              <small id="passwordMatchHint" class="form-text"></small>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100 btn-animate">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="login" class="p-5">
+    <h2 class="text-center slide-in-up">Login</h2>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form action="/login" method="POST">
+            <div class="mb-3">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    const emailInput = document.getElementById("email");
+    const phoneInput = document.getElementById("phone");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+
+    const emailHint = document.getElementById("emailHint");
+    const phoneHint = document.getElementById("phoneHint");
+    const passwordStrengthBar = document.getElementById("passwordStrengthBar");
+    const passwordStrengthHint = document.getElementById("passwordStrengthHint");
+    const passwordMatchHint = document.getElementById("passwordMatchHint");
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    function calculatePasswordStrength(password) {
+      let strength = 0;
+      if (password.length >= 8) strength += 25;
+      if (/[A-Z]/.test(password)) strength += 25;
+      if (/[a-z]/.test(password)) strength += 20;
+      if (/[0-9]/.test(password)) strength += 20;
+      if (/[@$!%*?&#]/.test(password)) strength += 10;
+      return strength;
+    }
+
+    emailInput.addEventListener("input", () => {
+      if (emailRegex.test(emailInput.value)) {
+        emailHint.textContent = "Valid email.";
+        emailHint.style.color = "green";
+      } else {
+        emailHint.textContent = "Invalid email.";
+        emailHint.style.color = "red";
+      }
+    });
+
+    phoneInput.addEventListener("input", () => {
+      if (phoneRegex.test(phoneInput.value)) {
+        phoneHint.textContent = "Valid phone number.";
+        phoneHint.style.color = "green";
+      } else {
+        phoneHint.textContent = "Invalid phone number. Must start with 6-9 and have 10 digits.";
+        phoneHint.style.color = "red";
+      }
+    });
+
+    passwordInput.addEventListener("input", () => {
+      const strength = calculatePasswordStrength(passwordInput.value);
+      passwordStrengthBar.style.width = strength + "%";
+      passwordStrengthBar.setAttribute("aria-valuenow", strength);
+      passwordStrengthBar.textContent = strength + "%";
+
+      if (strength < 40) {
+        passwordStrengthBar.className = "progress-bar bg-danger";
+        passwordStrengthHint.textContent = "Weak password.";
+        passwordStrengthHint.style.color = "red";
+      } else if (strength < 80) {
+        passwordStrengthBar.className = "progress-bar bg-warning";
+        passwordStrengthHint.textContent = "Moderate password.";
+        passwordStrengthHint.style.color = "orange";
+      } else {
+        passwordStrengthBar.className = "progress-bar bg-success";
+        passwordStrengthHint.textContent = "Strong password.";
+        passwordStrengthHint.style.color = "green";
+      }
+
+      if (confirmPasswordInput.value) {
+        checkPasswordMatch();
+      }
+    });
+
+    function checkPasswordMatch() {
+      if (confirmPasswordInput.value === passwordInput.value) {
+        passwordMatchHint.textContent = "Passwords match.";
+        passwordMatchHint.style.color = "green";
+      } else {
+        passwordMatchHint.textContent = "Passwords do not match.";
+        passwordMatchHint.style.color = "red";
+      }
+    }
+
+    confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+    const form = document.getElementById("signupForm");
+    form.addEventListener("submit", (event) => {
+      const strength = calculatePasswordStrength(passwordInput.value);
+
+      if (strength < 80) {
+        alert("Password strength must be at least 80%.");
+        event.preventDefault();
+      }
+
+      if (passwordInput.value !== confirmPasswordInput.value) {
+        alert("Passwords do not match.");
+        event.preventDefault();
+      }
+    });
+  </script>
+  </section>
+
+  <footer class="bg-dark text-white text-center p-3">
+    <h2>Contact Us</h2>
+    <p>Email: A-One Service@gmail.com | Phone: +91 9876543210</p>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/wlibs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
