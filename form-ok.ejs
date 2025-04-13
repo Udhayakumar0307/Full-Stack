@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+      flex-direction: column;
+    }
+
+    .card {
+      display: flex;
+      background: #fff;
+      color: #333;
+      width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      animation: slide-in 1.5s ease-out;
+      border: 2px solid #007BFF;
+      position: relative;
+      margin-top: 2rem;
+    }
+
+    .card-title {
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #007BFF;
+      color: white;
+      padding: 0.5rem 2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 130px;
+      margin-right: 2rem;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 4px solid #007BFF;
+      border-radius: 8px;
+    }
+
+    .id-box {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+    }
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .user-details h2 {
+      color: #007BFF;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .user-details p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .user-details span {
+      color: #007BFF;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: white;
+      background: #007BFF;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #0056b3;
+      transform: scale(1.05);
+    }
+
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-title">Community Hub Card</div>
+    <div class="avatar-container">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=<%= userid %>" alt="User QR Code" class="avatar">
+      <div class="id-box">
+        <%= userid %>
+      </div>
+    </div>
+    <div class="user-details">
+      <p><strong>Name:</strong> <span>
+          <%= name %>
+        </span></p>
+      <p><strong>Email:</strong> <span>
+          <%= email %>
+        </span></p>
+      <p><strong>Phone:</strong> <span>
+          <%= phone %>
+        </span></p>
+      <p><strong>Age:</strong> <span>
+          <%= age %>
+        </span></p>
+      <p><strong>Interest:</strong> <span>
+          <%= interest %>
+        </span></p>
+      <p><strong>Member Since:</strong> <span>
+          <%= member_since %>
+        </span></p>
+      <p><strong>Status:</strong> <span>
+          <%= status %>
+        </span>
+        <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="12" fill="#0066FF" />
+          <path d="M7 12.5L10.5 16L17 9" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </p>
+    </div>
+  </div>
+  <a href="/" class="back-btn">Back to Home</a>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="bg-primary text-white text-center p-3">
+    <h1>User Management</h1>
+  </header>
+
+  <main class="container mt-4">
+    <div class="mb-3">
+      <button id="fetchUsers" class="btn btn-primary">Fetch Users</button>
+    </div>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Age</th>
+          <th>Interest</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+  </main>
+
+  <script>
+    const fetchUsersButton = document.getElementById('fetchUsers');
+    const userTableBody = document.getElementById('userTableBody');
+
+    fetchUsersButton.addEventListener('click', async () => {
+      const response = await fetch('/api/users');
+      const users = await response.json();
+
+      userTableBody.innerHTML = '';
+      users.forEach((user) => {
+        const row = `
+          <tr>
+            <td>${user.userid}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+            <td>${user.age}</td>
+            <td>${user.interest}</td>
+            <td>
+              <a href="/edituser/${user.userid}" class="btn btn-warning btn-sm">Edit</a>
+              <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.userid})">Delete</button>
+            </td>
+          </tr>
+        `;
+        userTableBody.insertAdjacentHTML('beforeend', row);
+      });
+    });
+
+    async function deleteUser(id) {
+      const response = await fetch(`/api/users/${id}`, { method: 'DELETE' });
+      if (response.ok) {
+        alert('User deleted successfully!');
+        fetchUsersButton.click();
+      } else {
+        const errorData = await response.json();
+        alert('Error deleting user: ' + errorData.error);
+      }
+    }
+
+
+  </script>
+  <a href="/" class="btn btn-primary btn-lg btn-animate">Back</a>
+</body>
+
+</html>
