@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Hub Card</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+    <div class="card-container">
+        <div class="card">
+            <h2 class="card-title">Community Hub Card</h2>
+            
+            <div class="qr-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=<%= email %>" alt="QR Code">
+            </div>
+
+            <p><strong>User ID:</strong> <span class="user-id"><%= userId %></span></p>
+            <p><strong>Name:</strong> <%= name %></p>
+            <p><strong>Email:</strong> <%= email %></p>
+            <p><strong>Phone:</strong> <%= phone %></p>
+            <p><strong>Age:</strong> <%= age %></p>
+            <p><strong>Course:</strong> <%= course %></p>
+            <p><strong>Member Since:</strong> <%= memberSince %></p>
+            <p><strong>Status:</strong> <span class="status active">Active ✅</span></p>
+            
+            <a href="/" class="btn">Back to Home</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

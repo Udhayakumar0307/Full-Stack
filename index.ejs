@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-One Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">A-One Services</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+     <!-- Hero Section -->
+     <div class="hero d-flex align-items-center justify-content-center text-center text-white" 
+     style="background: url('/image/image.jpg') center/cover no-repeat; height: 100vh;">
+    <div class="container">
+        <h1>Welcome to A-One Services</h1>
+        <p>We create awesome experiences for you!</p>
+        <a href="#" id="getStartedBtn" class="btn btn-primary">Get Started</a>
+    </div>
+</div>
+
+    <!-- About Us Section -->
+    <section id="about" class="container my-5">
+        <h2 class="text-center">About Us</h2>
+        <p class="text-center">
+            At A-One Services, we are dedicated to empowering individuals with top-notch IT and cybersecurity training. 
+            Our programs are designed to provide hands-on experience, expert guidance, and globally recognized certifications.
+        </p>
+        <div class="about-container d-flex justify-content-center gap-4">
+            <div class="about-box mission"> 
+                <h3>Our Mission</h3>
+                <p>We empower individuals with tech skills for a brighter future.</p>
+            </div>
+            <div class="about-box vision"> 
+                <h3>Our Vision</h3>
+                <p>To be the leading platform for IT education and career transformation.</p>
+            </div>
+            <div class="about-box join"> 
+                <h3>Why Join Us?</h3>
+                <p>Get expert mentorship, networking opportunities, and career support.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container my-5">
+        <h2 class="section-title text-center">Our Services</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="box guidance">
+                    <h3>Expert Guidance</h3>
+                    <p>Learn from industry professionals with real-world experience.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box networking">
+                    <h3>Networking</h3>
+                    <p>Connect with experts and peers to expand your opportunities.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box certifications">
+                    <h3>Certifications</h3>
+                    <p>Earn globally recognized certifications to boost your career.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col-md-6">
+                <div class="box skills">
+                    <h3>Skill Development</h3>
+                    <p>Enhance your technical skills with hands-on training.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box career">
+                    <h3>Career Guidance</h3>
+                    <p>Get expert advice on building a successful career path.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login" class="container my-5">
+        <h2 class="section-title text-black text-center">Login Portal</h2>
+        <div class="contact-box mx-auto p-4 rounded shadow">
+            <form action="/submit" method="POST">
+                <div class="form-group row mb-3">
+                    <label for="name" class="col-sm-3 col-form-label fw-bold">Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="email" class="col-sm-3 col-form-label fw-bold">Email:</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" name="email" class="form-control" required>
+                        <small id="emailError" class="text-danger"></small> 
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="phone" class="col-sm-3 col-form-label fw-bold">Phone:</label>
+                    <div class="col-sm-9">
+                        <input type="tel" id="phone" name="phone" class="form-control" pattern="[6-9]{1}[0-9]{9}" required>
+                        <small class="text-muted">Enter a valid 10-digit phone number.</small>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="age" class="col-sm-3 col-form-label fw-bold">Age:</label>
+                    <div class="col-sm-9">
+                        <input type="number" id="age" name="age" class="form-control" min="10" max="99" required>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="course" class="col-sm-3 col-form-label fw-bold">Course:</label>
+                    <div class="col-sm-9">
+                        <select id="course" name="course" class="form-control" required>
+                            <option value="">Select a course</option>
+                            <option value="Cybersecurity">Cybersecurity</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Full-Stack Development">Full-Stack Development</option>
+                            <option value="Java Development">Java Development</option>
+                            <option value="Python Development">Python Development</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="password" class="col-sm-3 col-form-label fw-bold">Password:</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" name="password" class="form-control" required oninput="checkPasswordStrength()">
+                        <div class="password-strength">
+                            <div id="strengthBar" class="strength-bar"></div>
+                        </div>
+                        <small id="strengthMessage" class="form-text"></small>
+                    </div>
+                </div>
+
+                <div class="form-group row mb-3">
+                    <label for="confirmPassword" class="col-sm-3 col-form-label fw-bold">Confirm Password:</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required oninput="checkPasswordMatch()">
+                        <small id="matchMessage" class="form-text"></small>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="contact" class="container-fluid p-0">
+        <footer class="bg-dark text-white text-center py-2">
+            <p>📞 Phone: 9876543210 | 📧 Email: 
+                <a href="mailto:A-Oneservice@gmail.com" class="text-white">A-Oneservice@gmail.com</a>
+            </p>
+        </footer>
+    </section>
+    
+
+    <script>
+       function checkPasswordStrength() {
+    let password = document.getElementById("password").value;
+    let strengthBar = document.getElementById("strengthBar");
+    let strengthMessage = document.getElementById("strengthMessage");
+
+    let strength = 0;
+
+    if (password.length >= 8) strength++; 
+    if (password.match(/[A-Z]/)) strength++; 
+    if (password.match(/[a-z]/)) strength++; 
+    if (password.match(/[0-9]/)) strength++;
+    if (password.match(/[\W]/)) strength++; 
+
+    strengthBar.className = "strength-bar"; 
+
+    if (strength === 0) {
+        strengthBar.style.width = "0%";
+        strengthMessage.innerText = "";
+    } else if (strength <= 2) {
+        strengthBar.style.width = "30%";
+        strengthBar.classList.add("weak");
+        strengthMessage.innerText = "Weak";
+        strengthMessage.style.color = "red";
+    } else if (strength <= 4) {
+        strengthBar.style.width = "60%";
+        strengthBar.classList.add("moderate");
+        strengthMessage.innerText = "Moderate";
+        strengthMessage.style.color = "orange";
+    } else {
+        strengthBar.style.width = "100%";
+        strengthBar.classList.add("strong");
+        strengthMessage.innerText = "Strong";
+        strengthMessage.style.color = "green";
+    }
+}
+
+        function checkPasswordMatch() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+            const matchMessage = document.getElementById("matchMessage");
+            matchMessage.textContent = password === confirmPassword ? "Passwords match!" : "Passwords do not match!";
+        }
+    </script>
+    <script>
+        document.getElementById("email").addEventListener("input", function () {
+            const emailInput = this.value;
+            const emailError = document.getElementById("emailError");
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+        
+            if (emailInput === "") {
+                emailError.textContent = ""; 
+            } else if (!emailPattern.test(emailInput)) {
+                emailError.textContent = "Invalid email address!";
+            } else {
+                emailError.textContent = ""; 
+            }
+        });
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+
+
+
+</body>
+</html>
